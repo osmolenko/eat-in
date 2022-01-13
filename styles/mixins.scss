@@ -1,0 +1,90 @@
+@import "variables";
+
+@mixin heading-h1 {
+  font: {
+    size: 36px;
+    weight: 600;
+  }
+  color: $main-black;
+}
+
+@mixin heading-h2 {
+  font: {
+    size: 30px;
+    weight: 600;
+  }
+  color: $main-black;
+}
+
+@mixin heading-h3 {
+  font: {
+    size: 26px;
+    weight: 600;
+  }
+  color: $main-black;
+}
+
+@mixin paragraph {
+  font: {
+    size: 18px;
+    weight: 400;
+  }
+  line-height: 125%;
+  color: $main-black;
+}
+
+@mixin action {
+  font: {
+    size: 16px;
+    weight: 400;
+  }
+  color: $main-black;
+}
+
+@mixin spec-s {
+  font: {
+    size: 18px;
+    weight: 400;
+  }
+  color: $main-black;
+}
+
+@mixin spec-l {
+  font: {
+    size: 24px;
+    weight: 400;
+  }
+  color: $main-black;
+}
+
+@mixin price-s {
+  font: {
+    size: 14px;
+    weight: 600;
+  }
+  color: $main-black;
+}
+
+@mixin price-l {
+  font: {
+    size: 18px;
+    weight: 600;
+  }
+  color: $main-black;
+}
+
+@mixin shadow-primary {
+  box-shadow: 1px 1px 13px rgba(0, 0, 0, 0.1);
+}
+
+@mixin border-s {
+  border-radius: 20px;
+}
+
+@mixin border-l {
+  border-radius: 50px;
+}
+
+@mixin border-action {
+  border-radius: 50px 0 50px 0;
+}
