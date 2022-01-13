@@ -1,0 +1,10 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.container {
+  @include border-s;
+  @include price-l;
+
+  padding: 10px 15px;
+  background-color: $light-yellow;
+}

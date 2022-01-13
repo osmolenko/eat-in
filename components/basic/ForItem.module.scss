@@ -1,0 +1,11 @@
+@import "../../styles/mixins";
+
+.container {
+  @include spec-s;
+
+  margin-left: 10px;
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}

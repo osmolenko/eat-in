@@ -1,0 +1,62 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+%spec {
+  @include spec-s;
+  @include border-s;
+  @include shadow-primary;
+
+  display: inline-block;
+  text-align: center;
+
+  p {
+    margin-top: -5px;
+  }
+}
+
+%m-spec {
+  @extend %spec;
+
+  min-width: 170px;
+  padding: 5px 0;
+}
+
+%l-spec {
+  @extend %spec;
+  @include spec-l;
+
+  width: 184px;
+  padding: 15px 0;
+}
+
+.m-primary {
+  @extend %m-spec;
+
+  border: $border-solid $secondary;
+}
+
+.m-secondary {
+  @extend %m-spec;
+
+  border: $border-solid $lily;
+}
+
+.s-primary {
+  @extend %spec;
+
+  width: 122px;
+  padding: 15px 0;
+  border: $border-solid $lily;
+}
+
+.l-primary {
+  @extend %l-spec;
+
+  border: $border-solid $lily;
+}
+
+.l-secondary {
+  @extend %l-spec;
+
+  border: $border-solid $warning;
+}
