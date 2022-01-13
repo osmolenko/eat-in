@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from './TextInput.module.scss'
-import Eye from '../icons/Eye'
-import EyeOff from '../icons/EyeOff'
+import Eye from '../../icons/Eye'
+import EyeOff from '../../icons/EyeOff'
 import InputMask from 'react-input-mask'
 
 const TextInput = React.forwardRef(function TextInput(inProps, ref) {

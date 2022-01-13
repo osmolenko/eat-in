@@ -1,9 +1,8 @@
-@import "styles/mixins";
+@import "../../styles/mixins";
 
 .label {
   @include spec-l;
 
-  align-self: flex-start;
   margin-left: 20px;
 }
 
@@ -12,7 +11,7 @@
   @include border-l;
   @include input-base;
 
-  input {
+  select {
     @include spec-s;
 
     width: 100%;
