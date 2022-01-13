@@ -5,6 +5,7 @@
   @include spec-s;
   @include border-l;
   @include shadow-primary;
+
   width: 300px;
   height: 60px;
 }
@@ -13,25 +14,30 @@
   @include spec-s;
   @include border-action;
   @include shadow-primary;
+
   padding: 18px 30px;
 }
 
 .primary {
   @extend %base-button;
+
   background-color: $primary;
 }
 
 .secondary {
   @extend %base-button;
+
   background-color: $secondary;
 }
 
 .primary-action {
   @extend %action-button;
+
   background-color: $primary;
 }
 
 .secondary-action {
   @extend %action-button;
+
   background-color: $warning;
 }

@@ -2,6 +2,7 @@
 
 .label {
   @include spec-l;
+
   margin-left: 20px;
 }
 
@@ -10,8 +11,9 @@
   @include border-l;
   @include input-base;
 
-  select{
+  select {
     @include spec-s;
+
     width: 100%;
   }
 }

@@ -1,80 +1,80 @@
 @import "variables";
 
 @mixin heading-h1 {
+  color: $main-black;
   font: {
     size: 36px;
     weight: 600;
   }
-  color: $main-black;
 }
 
 @mixin heading-h2 {
+  color: $main-black;
   font: {
     size: 30px;
     weight: 600;
   }
-  color: $main-black;
 }
 
 @mixin heading-h3 {
+  color: $main-black;
   font: {
     size: 26px;
     weight: 600;
   }
-  color: $main-black;
 }
 
 @mixin paragraph {
+  color: $main-black;
+  line-height: 125%;
   font: {
     size: 18px;
     weight: 400;
   }
-  line-height: 125%;
-  color: $main-black;
 }
 
 @mixin action {
+  color: $main-black;
   font: {
     size: 16px;
     weight: 400;
   }
-  color: $main-black;
 }
 
 @mixin spec-s {
+  color: $main-black;
   font: {
     size: 18px;
     weight: 400;
   }
-  color: $main-black;
 }
 
 @mixin spec-l {
+  color: $main-black;
   font: {
     size: 24px;
     weight: 400;
   }
-  color: $main-black;
 }
 
 @mixin price-s {
+  color: $main-black;
   font: {
     size: 14px;
     weight: 600;
   }
-  color: $main-black;
 }
 
 @mixin price-l {
+  color: $main-black;
   font: {
     size: 18px;
     weight: 600;
   }
-  color: $main-black;
 }
 
 @mixin shadow-primary {
-  box-shadow: 1px 1px 13px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 13px rgb(0 0 0 / 10%);
 }
 
 @mixin border-s {
@@ -86,17 +86,16 @@
 }
 
 @mixin border-action {
-  border-radius: 50px 0 50px 0;
+  border-radius: 50px 0;
 }
 
 @mixin input-base {
-  width: 360px;
-  background-color: $light-lime;
-  padding: 20px;
   display: flex;
-
   flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
   gap: 5px;
+  align-items: center;
+  justify-content: space-between;
+  width: 360px;
+  padding: 20px;
+  background-color: $light-lime;
 }
