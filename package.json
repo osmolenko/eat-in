@@ -2,6 +2,7 @@
   "name": "eat-in",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -24,11 +25,24 @@
     "eslint-plugin-react-redux": "^3.3.4",
     "eslint-plugin-sonarjs": "^0.11.0",
     "husky": "^7.0.4",
-    "prettier": "^2.5.1"
+    "lint-staged": "^12.1.7",
+    "prettier": "^2.5.1",
+    "stylelint": "^14.2.0",
+    "stylelint-order": "^5.0.0"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "lint . --fix",
+      "git add"
+    ],
+    "**/*.scss": [
+      "stylelint --syntax scss --fix",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": ""
+      "pre-commit": "lint-staged"
     }
   }
 }
