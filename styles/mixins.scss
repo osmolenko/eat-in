@@ -88,3 +88,15 @@
 @mixin border-action {
   border-radius: 50px 0 50px 0;
 }
+
+@mixin input-base {
+  width: 360px;
+  background-color: $light-lime;
+  padding: 20px;
+  display: flex;
+
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
