@@ -1,0 +1,17 @@
+@import "styles/mixins";
+
+.label {
+  @include spec-l;
+  margin-left: 20px;
+}
+
+.container {
+  @include shadow-primary;
+  @include border-l;
+  @include input-base;
+
+  input{
+    @include spec-s;
+    width: 100%;
+  }
+}
