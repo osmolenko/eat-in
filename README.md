@@ -6,8 +6,11 @@ Objective for MVP - mobile PWA app. (Desktop and tablets after main work).
 Project start date - 12/01/22.
 
 Figma design file - [***click***](https://www.figma.com/file/6FtJnHy1p9ufq7iGXFcjer/eat-in?node-id=25%3A801])
+
 ##To-do
+
 ###Pages
+
 - [x] Auth
 - [x] Register
 - [ ] Product
@@ -18,7 +21,9 @@ Figma design file - [***click***](https://www.figma.com/file/6FtJnHy1p9ufq7iGXFc
 - [ ] Settings (password, name change, etc.)
 - [ ] Status pages for success and errors
 - [ ] 404
+
 ###Basic components
+
 - [x] JSX icons
 - [x] Buttons
 - [x] Checkbox
@@ -31,7 +36,9 @@ Figma design file - [***click***](https://www.figma.com/file/6FtJnHy1p9ufq7iGXFc
 - [x] Product item card
 - [x] Product cart item (mutable & immutable)
 - [x] Order card (expandable)
+
 ###Logic
+
 - [ ] Firebase auth and register (50/50 on Google auth)
 - [ ] Firestore data hording
 - [ ] Firebase image hording
