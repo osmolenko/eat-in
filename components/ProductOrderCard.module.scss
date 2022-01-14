@@ -1,0 +1,32 @@
+@import 'styles/mixins';
+@import 'styles/variables';
+
+.container {
+  @include price-l;
+  display: grid;
+  grid-template-areas: "name price" "price-per-day counter";
+  margin: 0 20px;
+  gap: 10px;
+
+
+  &__name {
+    grid-area: name;
+    justify-self: start;
+  }
+
+  &__perday {
+    grid-area: price-per-day;
+    justify-self: start;
+    color: $light-gray;
+  }
+
+  &__counter {
+    grid-area: counter;
+    justify-self: end;
+  }
+
+  &__price {
+    grid-area: price;
+    justify-self: end;
+  }
+}

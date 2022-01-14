@@ -29,7 +29,7 @@ Figma design file - [***click***](https://www.figma.com/file/6FtJnHy1p9ufq7iGXFc
 - [x] For whom component
 - [x] Product card
 - [x] Product item card
-- [ ] Product cart item (mutable & immutable)
+- [x] Product cart item (mutable & immutable)
 - [ ] Order card (expandable)
 ###Logic
 - [ ] Firebase auth and register (50/50 on Google auth)
