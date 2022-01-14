@@ -1,13 +1,13 @@
-@import 'styles/mixins';
-@import 'styles/variables';
+@import "styles/mixins";
+@import "styles/variables";
 
 .container {
   @include price-l;
+
   display: grid;
   grid-template-areas: "name price" "price-per-day counter";
-  margin: 0 20px;
   gap: 10px;
-
+  margin: 0 20px;
 
   &__name {
     grid-area: name;
