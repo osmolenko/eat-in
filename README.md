@@ -4,6 +4,8 @@ For MVP app must have a functionality to make an order, check availability of pr
 Objective for MVP - mobile PWA app. (Desktop and tablets after main work).
 
 Project start date - 12/01/22.
+
+Figma design file - [***click***](https://www.figma.com/file/6FtJnHy1p9ufq7iGXFcjer/eat-in?node-id=25%3A801])
 ##To-do
 ###Pages
 - [x] Auth
