@@ -1,0 +1,77 @@
+@import "styles/mixins";
+
+.container {
+  @include border-l;
+  @include shadow-primary;
+
+  display: flex;
+  flex-direction: column;
+
+  .image {
+    @include border-l;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 250px;
+
+    background: {
+      position: center;
+      repeat: no-repeat;
+      size: cover;
+    }
+
+    span {
+      margin: 0 15px 15px 0;
+    }
+  }
+
+  &__name {
+    @include heading-h2;
+
+    margin: 10px 15px 0;
+  }
+
+  &__specs {
+    margin: 0 20px;
+
+    &__heading {
+      @include price-l;
+
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    &__cards {
+      display: flex;
+      flex-flow: row wrap;
+      gap: 5px;
+      justify-content: space-evenly;
+      margin: 10px 0 20px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: baseline;
+    justify-content: space-between;
+
+    a {
+      @include spec-s;
+
+      display: block;
+      margin-left: 50px;
+      text-decoration: none;
+
+      &:hover {
+        color: $secondary-dark;
+        text-decoration: underline;
+      }
+    }
+
+    button {
+      min-width: 180px;
+    }
+  }
+}
