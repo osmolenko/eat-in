@@ -1,0 +1,10 @@
+@import "styles/mixins";
+
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}

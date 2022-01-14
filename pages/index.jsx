@@ -1,9 +1,12 @@
 import Head from 'next/head'
-import Button from '../components/Button'
-import TextInput from '../components/TextInput'
-import SelectInput from '../components/SelectInput'
+import Button from '../components/basic/Button'
+import TextInput from '../components/basic/TextInput'
+import SelectInput from '../components/basic/SelectInput'
 import { timeIntervals } from '../constants'
-import Checkbox from '../components/Checkbox'
+import Checkbox from '../components/basic/Checkbox'
+import ForItem from '../components/basic/ForItem'
+import SpecItem from '../components/basic/SpecItem'
+import ProductCard from '../components/ProductCard'
 
 export default function Home() {
   return (
@@ -21,6 +24,33 @@ export default function Home() {
         name="time"
         labelText="Время получения"
       />
+      <br />
+      <br />
+      <ForItem variant={0} />
+      <br />
+      <ForItem variant={1} />
+      <br />
+      <SpecItem variant="m-primary" type="Ценность" data="1400 ккал." />
+      <SpecItem variant="m-secondary" type="Жиры" data="5,7 г." />
+      <br />
+      <SpecItem variant="m-secondary" type="Углеводы" data="5,7 г." />
+      <SpecItem variant="m-secondary" type="Белки" data="5,7 г." />
+
+      <br />
+      <SpecItem variant="s-primary" type="Жиры" data="5,7 г." />
+      <SpecItem variant="s-primary" type="Углеводы" data="5,7 г." />
+      <SpecItem variant="s-primary" type="Белки" data="5,7 г." />
+      <br />
+      <SpecItem variant="l-primary" data="1400 ккал" />
+      <SpecItem variant="l-secondary" data="8 дней" />
+      <br />
+      <br />
+      <ProductCard />
+
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   )
 }

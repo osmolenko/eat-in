@@ -1,34 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## eat-in
+This is a 2-week project for healthy food delivery service.
+For MVP app must have a functionality to make an order, check availability of product, correctly use a cart. 
+Objective for MVP - mobile PWA app. (Desktop and tablets after main work).
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Project start date - 12/01/22.
+##To-do
+###Pages
+- [x] Auth
+- [x] Register
+- [ ] Product
+- [x] Product list
+- [ ] Cart
+- [ ] Order
+- [ ] Profile
+- [ ] Settings (password, name change, etc.)
+- [ ] Status pages for success and errors
+- [ ] 404
+###Basic components
+- [x] JSX icons
+- [x] Buttons
+- [x] Checkbox
+- [x] Select input
+- [x] Text input
+- [x] Specification card
+- [x] Price tag card
+- [x] For whom component
+- [ ] Product card
+- [ ] Product item card
+- [ ] Product cart item (mutable & immutable)
+- [ ] Order card (expandable)
+###Logic
+- [ ] Firebase auth and register (50/50 on Google auth)
+- [ ] Firestore data hording
+- [ ] Firebase image hording
+- [ ] Full forms validation
+- [ ] Cart store data in local storage
+- [ ] Email notifications for new orders
+- [ ] Address picker on order page
