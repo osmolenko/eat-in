@@ -25,8 +25,8 @@ Project start date - 12/01/22.
 - [x] Specification card
 - [x] Price tag card
 - [x] For whom component
-- [ ] Product card
-- [ ] Product item card
+- [x] Product card
+- [x] Product item card
 - [ ] Product cart item (mutable & immutable)
 - [ ] Order card (expandable)
 ###Logic
