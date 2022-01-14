@@ -34,19 +34,9 @@
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.1.0"
   },
-  "lint-staged": {
-    "**/*.{js,jsx}": [
-      "lint . --fix",
-      "git add"
-    ],
-    "**/*.scss": [
-      "stylelint --fix",
-      "git add"
-    ]
-  },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "stylelint '**/*.scss' --fix && lint --fix"
     }
   }
 }
