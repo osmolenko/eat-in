@@ -30,7 +30,7 @@ Figma design file - [***click***](https://www.figma.com/file/6FtJnHy1p9ufq7iGXFc
 - [x] Product card
 - [x] Product item card
 - [x] Product cart item (mutable & immutable)
-- [ ] Order card (expandable)
+- [x] Order card (expandable)
 ###Logic
 - [ ] Firebase auth and register (50/50 on Google auth)
 - [ ] Firestore data hording

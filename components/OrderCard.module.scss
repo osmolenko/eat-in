@@ -1,0 +1,89 @@
+@import "styles/mixins";
+@import "styles/variables";
+
+%price-s {
+  @include price-s;
+
+  color: $light-gray;
+}
+
+.container {
+  display: grid;
+  grid-template-areas: "number sum" "date status" "more more";
+  gap: 10px;
+  margin: 0 20px;
+
+  &__number {
+    @include price-l;
+
+    grid-area: number;
+  }
+
+  &__sum {
+    @include price-l;
+
+    grid-area: sum;
+    justify-self: end;
+  }
+
+  &__date {
+    @extend %price-s;
+
+    grid-area: date;
+  }
+
+  &__status {
+    @extend %price-s;
+
+    grid-area: status;
+    justify-self: end;
+  }
+
+  &__more {
+    display: flex;
+    flex-flow: column nowrap;
+    grid-area: more;
+
+    &__item {
+      margin: 10px 0;
+
+      &__head {
+        @include price-l;
+
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+
+      &__product {
+        @extend %price-s;
+
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        margin: 5px 10px;
+      }
+    }
+
+    &__info {
+      @include price-s;
+
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 10px;
+      margin: 10px;
+    }
+
+    &__expand {
+      @include action;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      border-radius: 0 0 20px 20px;
+      background-color: $lily;
+    }
+  }
+}
