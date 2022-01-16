@@ -13,14 +13,13 @@ Figma design file - [***click***](https://www.figma.com/file/6FtJnHy1p9ufq7iGXFc
 
 - [x] Auth
 - [x] Register
-- [ ] Product
+- [x] Product
 - [x] Product list
 - [ ] Cart
 - [ ] Order
-- [ ] Profile
-- [ ] Settings (password, name change, etc.)
-- [ ] Status pages for success and errors
-- [ ] 404
+- [x] Profile
+- [x] Status pages for success and errors
+- [x] 404
 
 ###Basic components
 
@@ -39,9 +38,9 @@ Figma design file - [***click***](https://www.figma.com/file/6FtJnHy1p9ufq7iGXFc
 
 ###Logic
 
-- [ ] Firebase auth and register (50/50 on Google auth)
-- [ ] Firestore data hording
-- [ ] Firebase image hording
+- [ ] next-auth auth and reg + OAuth
+- [ ] Mongoose data hording
+- [ ] Next image hording
 - [ ] Full forms validation
 - [ ] Cart store data in local storage
 - [ ] Email notifications for new orders
