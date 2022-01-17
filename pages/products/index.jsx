@@ -2,15 +2,15 @@ import React from 'react'
 import styles from './index.module.scss'
 import ProductCard from '../../components/ProductCard'
 
-const Index = (props) => {
-  console.log(props)
+const Index = ({ products }) => {
   return (
     <section className={styles.container}>
       <h1>Новинки</h1>
-      <ProductCard />
-      <h1>Наше питание</h1>
-      <ProductCard />
-      <ProductCard />
+      {products
+        ? products.map((product) => (
+            <ProductCard key={product.pid} product={product} />
+          ))
+        : 'Пока продуктов нету =('}
     </section>
   )
 }
@@ -23,11 +23,11 @@ export async function getServerSideProps() {
     },
   })
 
-  const data = await res.json()
+  const products = await res.json()
 
   return {
     props: {
-      data,
+      products,
     },
   }
 }
