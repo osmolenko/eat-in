@@ -21,25 +21,31 @@ export const forVariants = [
   {
     icon: <Balance />,
     name: 'Ищущим баланс во всём',
+    id: 0,
   },
   {
     icon: <Health />,
     name: 'За здоровое питание',
+    id: 1,
   },
   {
     icon: <Sport />,
     name: 'Занимающимся спортом',
+    id: 2,
   },
   {
     icon: <Time />,
     name: 'Бережливым ко времени',
+    id: 3,
   },
   {
     icon: <Straight />,
     name: 'Поддерживающим свой вес',
+    id: 4,
   },
   {
     icon: <Loss />,
     name: 'Желающих сбросить вес',
+    id: 5,
   },
 ]
