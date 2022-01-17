@@ -1,10 +1,12 @@
 import React from 'react'
+import Head from 'next/head'
 import styles from './[pid].module.scss'
 import PriceTag from '../../components/basic/PriceTag'
 import Button from '../../components/basic/Button'
 import SpecItem from '../../components/basic/SpecItem'
 import ForItem from '../../components/basic/ForItem'
 import ProductItemCard from '../../components/ProductItemCard'
+import AppContainer from '../../containers/AppContainer'
 
 const Product = ({
   product: {
@@ -23,7 +25,10 @@ const Product = ({
   },
 }) => {
   return (
-    <div className={styles.container}>
+    <AppContainer className={styles.container}>
+      <Head>
+        <title>Набор {name} - eat-in</title>
+      </Head>
       <div
         className={styles.container__image}
         style={{
@@ -75,7 +80,7 @@ const Product = ({
           ))}
         </div>
       </section>
-    </div>
+    </AppContainer>
   )
 }
 

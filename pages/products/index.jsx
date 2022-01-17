@@ -1,17 +1,20 @@
 import React from 'react'
 import styles from './index.module.scss'
 import ProductCard from '../../components/ProductCard'
+import AppContainer from '../../containers/AppContainer'
 
 const Index = ({ products }) => {
   return (
-    <section className={styles.container}>
-      <h1>Новинки</h1>
-      {products
-        ? products.map((product) => (
-            <ProductCard key={product.pid} product={product} />
-          ))
-        : 'Пока продуктов нету =('}
-    </section>
+    <AppContainer>
+      <section className={styles.container}>
+        <h1>Новинки</h1>
+        {products
+          ? products.map((product) => (
+              <ProductCard key={product.pid} product={product} />
+            ))
+          : 'Пока продуктов нету =('}
+      </section>
+    </AppContainer>
   )
 }
 

@@ -1,0 +1,44 @@
+@import "styles/mixins";
+
+.content {
+  margin: 0 10px 100px;
+}
+
+.footer {
+  @include shadow-primary;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  margin: 0;
+  border: 0;
+  border-radius: 20px 20px 0 0;
+  background: white;
+  color: $main-black;
+  text-align: center;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__link {
+    @include spec-s;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 95px;
+    text-decoration: none;
+
+    &__icon {
+      margin-bottom: 5px;
+    }
+  }
+}
