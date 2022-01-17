@@ -58,3 +58,20 @@ const Product = () => {
 }
 
 export default Product
+
+export async function getServerSideProps(context) {
+  const res = await fetch(`http://localhost:3000/api/products/`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+
+  const products = await res.json()
+
+  return {
+    props: {
+      products,
+    },
+  }
+}
