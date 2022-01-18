@@ -1,4 +1,4 @@
 {
-  "plugins": ["sonarjs", "react-redux"],
-  "extends": ["next/core-web-vitals", "prettier", "plugin:sonarjs/recommended", "plugin:react-redux/recommended"]
+  "plugins": ["sonarjs"],
+  "extends": ["next","next/core-web-vitals","eslint:recommended", "prettier", "plugin:sonarjs/recommended"]
 }

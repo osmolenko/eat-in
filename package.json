@@ -43,5 +43,13 @@
     "stylelint-config-standard-scss": "^3.0.0",
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.1.0"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx}": [
+      "eslint --fix"
+    ],
+    "**/*.scss": [
+      "stylelint --fix"
+    ]
   }
 }

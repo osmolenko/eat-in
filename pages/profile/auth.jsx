@@ -5,14 +5,14 @@ import styles from './auth.module.scss'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { getProviders, signIn, useSession } from 'next-auth/react'
+import { signIn } from 'next-auth/react'
 
 const validationSchema = yup.object({
   tel: yup.string().required().length(17),
   password: yup.string().required().min(8),
 })
 
-const Auth = (props) => {
+const Auth = () => {
   const {
     register,
     handleSubmit,
@@ -20,9 +20,10 @@ const Auth = (props) => {
   } = useForm({ resolver: yupResolver(validationSchema) })
   const onSubmit = (data) => console.log(data)
 
-  const { data: session, status } = useSession()
-  const providers = async () => await getProviders()
-  const test = 'test'
+  // const { data: session, status } = useSession()
+  // const providers = async () => await getProviders()
+  // const test = 'test'
+  // const testi = 'testi'
 
   return (
     <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
@@ -64,14 +65,5 @@ const Auth = (props) => {
     </form>
   )
 }
-
-// export async function getServerSideProps(context) {
-//   return {
-//     props: {
-//       providers: await providers(context),
-//       session: await getSession(context),
-//     }, // will be passed to the page component as props
-//   }
-// }
 
 export default Auth
