@@ -5,19 +5,24 @@ import styles from './auth.module.scss'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
+import { getProviders, signIn, useSession } from 'next-auth/react'
 
 const validationSchema = yup.object({
   tel: yup.string().required().length(17),
   password: yup.string().required().min(8),
 })
 
-const Auth = () => {
+const Auth = (props) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(validationSchema) })
   const onSubmit = (data) => console.log(data)
+
+  const { data: session, status } = useSession()
+  const providers = async () => await getProviders()
+  const test = 'test'
 
   return (
     <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
@@ -39,8 +44,14 @@ const Auth = () => {
           {...register('password')}
         />
         <p>{errors.password?.message}</p>
-        <Button type="submit" variant="primary">
-          Войти
+        <Button variant="primary" onClick={() => signIn('google')}>
+          Войти с Google
+        </Button>
+        <Button variant="primary" onClick={() => signIn('facebook')}>
+          Войти с Facebook
+        </Button>
+        <Button variant="primary" onClick={() => signIn('instagram')}>
+          Войти с Instagram
         </Button>
       </div>
 
@@ -53,5 +64,14 @@ const Auth = () => {
     </form>
   )
 }
+
+// export async function getServerSideProps(context) {
+//   return {
+//     props: {
+//       providers: await providers(context),
+//       session: await getSession(context),
+//     }, // will be passed to the page component as props
+//   }
+// }
 
 export default Auth
