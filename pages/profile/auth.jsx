@@ -23,7 +23,6 @@ const Auth = (props) => {
   const { data: session, status } = useSession()
   const providers = async () => await getProviders()
   const test = 'test'
-  const testi = 'testi'
 
   return (
     <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
