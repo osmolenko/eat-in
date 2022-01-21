@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-import Product from '../pages/products/[pid]'
 import ProductItem from './ProductItem'
 
 const numberType = {
@@ -66,7 +65,7 @@ productSchema.pre('save', async function (next) {
 })
 
 productSchema.statics.findByPid = function (pid) {
-  return this.where({ pid: new RegExp(pid, 'i') })
+  return this.findOne({ pid: new RegExp(pid, 'i') })
 }
 
 export default mongoose.models.Product ||
