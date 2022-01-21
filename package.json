@@ -25,6 +25,8 @@
     "react-hook-form": "^7.23.0",
     "react-input-mask": "^2.0.4",
     "sass": "^1.48.0",
+    "swr": "^1.1.2",
+    "telegraf": "^4.6.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
