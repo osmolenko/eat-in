@@ -15,8 +15,8 @@ Figma design file - [***click***](https://www.figma.com/file/6FtJnHy1p9ufq7iGXFc
 - [x] Register
 - [x] Product
 - [x] Product list
-- [ ] Cart
-- [ ] Order
+- [x] Cart
+- [x] Order
 - [x] Profile
 - [x] Status pages for success and errors
 - [x] 404
@@ -38,10 +38,10 @@ Figma design file - [***click***](https://www.figma.com/file/6FtJnHy1p9ufq7iGXFc
 
 ###Logic
 
-- [ ] next-auth auth and reg + OAuth
-- [ ] Mongoose data hording
-- [ ] Next image hording
+- [x] next-auth auth and reg + OAuth
+- [x] Mongoose data hording
+- [x] Next image hording
 - [ ] Full forms validation
-- [ ] Cart store data in local storage
-- [ ] Email notifications for new orders
+- [x] Cart store data in db
+- [x] Telegram notifications for new orders
 - [ ] Address picker on order page
