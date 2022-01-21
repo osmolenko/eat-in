@@ -39,8 +39,6 @@ const CartNoSsr = () => {
 
   if (!data || error) return <Loader />
 
-  console.log(data)
-
   const handleChange = async (event, pid) => {
     await fetch(
       `http://localhost:3000/api/cart/modify-product?id=${id}&pid=${pid}&quantity=${event.target.value}`
@@ -59,23 +57,29 @@ const CartNoSsr = () => {
           <h2>Корзина</h2>
 
           <ul className={styles.container__products}>
-            {data.products.map((product) => (
-              <ProductOrderCard
-                key={product._id}
-                variant="input"
-                product={product}
-                onChange={(event) => handleChange(event, product.product.pid)}
-              />
-            ))}
+            {data.products.length
+              ? data.products.map((product) => (
+                  <ProductOrderCard
+                    key={product._id}
+                    variant="input"
+                    product={product}
+                    onChange={(event) =>
+                      handleChange(event, product.product.pid)
+                    }
+                  />
+                ))
+              : 'Ваша корзина пуста...'}
           </ul>
 
-          <Button
-            type="submit"
-            variant="primary"
-            onClick={() => router.push('/order/new')}
-          >
-            Заказать ( {summary}₴ )
-          </Button>
+          {data.products.length >= 1 && (
+            <Button
+              type="submit"
+              variant="primary"
+              onClick={() => router.push('/order/new')}
+            >
+              Заказать ( {summary}₴ )
+            </Button>
+          )}
         </section>
       </AppContainer>
     </>

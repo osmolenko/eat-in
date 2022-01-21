@@ -51,6 +51,10 @@ const New = () => {
 
   if (status === 'loading' || !data || error) return <Loader />
 
+  if (!data.products.length) {
+    ;(async () => await router.push('/cart'))()
+  }
+
   const submit = async (formData) => {
     const pid = new Date().getTime().toString()
 
