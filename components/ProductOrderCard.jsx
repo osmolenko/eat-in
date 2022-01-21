@@ -5,32 +5,34 @@ const ProductOrderCard = React.forwardRef(function ProductOrderCard(
   inProps,
   ref
 ) {
-  const { variant } = inProps
+  const { variant, product } = inProps
   return (
-    <div className={styles.container} ref={ref}>
+    <li className={styles.container}>
       <span className={styles.container__name}>
-        <b>Набор СлимFit</b>
+        <b>Набор {product.product.name}</b>
       </span>
       <span className={styles.container__perday}>
-        599₴
-        <small>/день</small>
+        {product.product.price}₴<small>/день</small>
       </span>
       {variant === 'input' ? (
         <input
           type="number"
           className={styles.container__counter}
+          ref={ref}
           {...inProps}
-          defaultValue={1}
-          min={1}
+          defaultValue={product.quantity || 1}
+          min={0}
           max={30}
         />
       ) : (
-        <span className={styles.container__counter}>1 день</span>
+        <span className={styles.container__counter}>
+          {product.quantity} день
+        </span>
       )}
       <span className={styles.container__price}>
-        <b>599₴</b>
+        <b>{product.product.price * product.quantity}₴</b>
       </span>
-    </div>
+    </li>
   )
 })
 

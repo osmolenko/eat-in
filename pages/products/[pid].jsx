@@ -7,9 +7,12 @@ import SpecItem from '../../components/basic/SpecItem'
 import ForItem from '../../components/basic/ForItem'
 import ProductItemCard from '../../components/ProductItemCard'
 import AppContainer from '../../containers/AppContainer'
+import mongoose from 'mongoose'
+import Product from '../../entities/Product'
+import { useRouter } from 'next/router'
 
-const Product = ({
-  product: {
+const ProductPage = (props) => {
+  const {
     pid,
     name,
     description,
@@ -22,8 +25,21 @@ const Product = ({
     carbohydrates,
     protein,
     items,
-  },
-}) => {
+  } = JSON.parse(props.product)
+
+  const router = useRouter()
+
+  async function handleAddToCart() {
+    let id = 0
+    if (typeof window !== 'undefined') {
+      id = localStorage.getItem('cart.id')
+    }
+    await fetch(`/api/cart/add/${pid}?id=${id}`, {
+      method: 'GET',
+    })
+    await router.push('/cart')
+  }
+
   return (
     <AppContainer className={styles.container}>
       <Head>
@@ -36,41 +52,49 @@ const Product = ({
         }}
       >
         <PriceTag>{price}</PriceTag>
-        <Button variant="primary-action">Купить</Button>
+        <Button variant="primary-action" onClick={handleAddToCart}>
+          Купить
+        </Button>
       </div>
 
       <section className={styles.container__content}>
         <h1 className={styles.container__content__heading}>{name}</h1>
         <p className={styles.container__content__desc}>{description}</p>
 
-        <div className={styles.container__content__specs}>
-          <SpecItem variant="l-primary" data={`${calories.toFixed(0)} ккал`} />
-          <SpecItem variant="l-secondary" data={`${days.toFixed(0)} дней`} />
-          <br />
-          <br />
-          <br />
-          <SpecItem
-            variant="s-primary"
-            type="Жиры"
-            data={`${fat.toFixed(1)} г.`}
-          />
-          <SpecItem
-            variant="s-primary"
-            type="Углеводы"
-            data={`${carbohydrates.toFixed(1)} г.`}
-          />
-          <SpecItem
-            variant="s-primary"
-            type="Белки"
-            data={`${protein.toFixed(1)} г.`}
-          />
-        </div>
+        <ul className={styles.container__content__specs}>
+          <div>
+            <SpecItem
+              variant="l-primary"
+              data={`${calories.toFixed(0)} ккал`}
+            />
+            <SpecItem variant="l-secondary" data={`${days.toFixed(0)} дней`} />
+          </div>
+          <div>
+            <SpecItem
+              variant="s-primary"
+              type="Жиры"
+              data={`${fat.toFixed(1)} г.`}
+            />
+            <SpecItem
+              variant="s-primary"
+              type="Углеводы"
+              data={`${carbohydrates.toFixed(1)} г.`}
+            />
+            <SpecItem
+              variant="s-primary"
+              type="Белки"
+              data={`${protein.toFixed(1)} г.`}
+            />
+          </div>
+        </ul>
 
         <div className={styles.container__content__for}>
           <h2>Для кого подходит?</h2>
-          {forwhom.map((forItem) => (
-            <ForItem key={forItem} variant={forItem - 1} />
-          ))}
+          <ul>
+            {forwhom.map((forItem, index) => (
+              <ForItem key={forItem + index} variant={forItem - 1} />
+            ))}
+          </ul>
         </div>
 
         <div className={styles.container__content__items}>
@@ -84,23 +108,20 @@ const Product = ({
   )
 }
 
-export default Product
+export default ProductPage
 
 export async function getServerSideProps(context) {
   const { pid } = context.query
 
-  const res = await fetch(`http://localhost:3000/api/products/${pid}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+  await mongoose.connect(process.env.MONGODB_URI)
+  const product = await Product.findByPid(pid).populate({
+    path: 'items',
+    populate: { path: 'item' },
   })
-
-  const product = await res.json()
 
   return {
     props: {
-      product: { ...product[0] },
+      product: JSON.stringify(product),
     },
   }
 }
