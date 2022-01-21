@@ -67,6 +67,7 @@ const New = () => {
       summary,
       phone: formData.phone.replaceAll(' ', ''),
       pid: pid,
+      selfMade: Boolean(formData.selfMade),
     }
 
     const response = await fetch('/api/order/make-order', {
@@ -149,7 +150,11 @@ const New = () => {
               required={true}
               options={timeIntervals}
             />
-            <Checkbox label="Приготовлю сам" {...register(`selfMade`)} />
+            <Checkbox
+              label="Приготовлю сам"
+              id="selfMade"
+              {...register(`selfMade`)}
+            />
             <Button variant="primary" type="submit">
               Оформить заказ ( {summary}₴ )
             </Button>
