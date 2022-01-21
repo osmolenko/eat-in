@@ -37,3 +37,7 @@ yarn-error.log*
 /.idea/
 /.code/
 /.vscode/
+
+
+# Uploads
+/public/uploads
