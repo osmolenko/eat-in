@@ -6,9 +6,9 @@ const ForItem = ({ variant }) => {
   const forItem = forVariants[variant]
 
   return (
-    <span className={styles.container}>
+    <li className={styles.container}>
       {forItem.icon} {forItem.name}
-    </span>
+    </li>
   )
 }
 

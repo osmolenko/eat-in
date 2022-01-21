@@ -3,10 +3,9 @@ import styles from './Button.module.scss'
 
 const Button = React.forwardRef(function Button(inProps, ref) {
   const { variant, children } = inProps
-  const props = () => ({ ...inProps, className: '' })
 
   return (
-    <button className={styles[variant]} ref={ref} {...props}>
+    <button className={styles[variant]} ref={ref} {...inProps}>
       {children}
     </button>
   )
