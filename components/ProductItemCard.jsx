@@ -2,24 +2,44 @@ import React from 'react'
 import styles from './ProductItemCard.module.scss'
 import SpecItem from './basic/SpecItem'
 
-const ProductItemCard = () => {
+const ProductItemCard = ({
+  item: {
+    variant,
+    item: { name, photo, calories, fat, carbohydrates, protein },
+  },
+}) => {
   return (
     <div className={styles.container}>
-      <h3>Завтрак</h3>
+      <h3>{variant}</h3>
       <div
         className={styles.container__image}
         style={{
-          backgroundImage:
-            'url("https://yaro.ua/assets/cache_image/img-2284_0x0_6f7.webp")',
+          backgroundImage: `url("/uploads/${photo}")`,
         }}
       />
-      <span>Глазунья, булгур, льняные флаксы с хумусом</span>
-      <div className={styles.container__specs}>
-        <SpecItem variant="m-primary" type="Ценность" data="1400 ккал" />
-        <SpecItem variant="m-primary" type="Жиры" data="5,7 г." />
-        <SpecItem variant="m-secondary" type="Углеводы" data="5,7 г." />
-        <SpecItem variant="m-secondary" type="Белки" data="5,7 г." />
-      </div>
+      <span>{name}</span>
+      <ul className={styles.container__specs}>
+        <SpecItem
+          variant="m-primary"
+          type="Ценность"
+          data={`${calories.toFixed(0)} ккал`}
+        />
+        <SpecItem
+          variant="m-primary"
+          type="Жиры"
+          data={`${fat.toFixed(1)} г.`}
+        />
+        <SpecItem
+          variant="m-secondary"
+          type="Углеводы"
+          data={`${carbohydrates.toFixed(1)} г.`}
+        />
+        <SpecItem
+          variant="m-secondary"
+          type="Белки"
+          data={`${protein.toFixed(1)} г.`}
+        />
+      </ul>
     </div>
   )
 }
