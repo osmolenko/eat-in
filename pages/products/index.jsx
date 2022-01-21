@@ -2,8 +2,11 @@ import React from 'react'
 import styles from './index.module.scss'
 import ProductCard from '../../components/ProductCard'
 import AppContainer from '../../containers/AppContainer'
+import mongoose from 'mongoose'
+import Product from '../../entities/Product'
 
-const Index = ({ products }) => {
+const Index = (props) => {
+  const products = JSON.parse(props.products)
   return (
     <AppContainer>
       <section className={styles.container}>
@@ -19,18 +22,14 @@ const Index = ({ products }) => {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch('http://localhost:3000/api/products', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-
-  const products = await res.json()
+  await mongoose.connect(process.env.MONGODB_URI)
+  const products = await Product.find().select(
+    'pid photo name price forwhom calories fat carbohydrates protein'
+  )
 
   return {
     props: {
-      products,
+      products: JSON.stringify(products),
     },
   }
 }
