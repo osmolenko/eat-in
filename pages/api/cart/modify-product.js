@@ -15,6 +15,8 @@ export default async function getHandler(req, res) {
 
     const { _id } = await Product.findByPid(productPid)
 
+    console.log(quantity)
+
     const isDelete = quantity <= 0
 
     cart.products.map(async (product) => {
@@ -25,8 +27,8 @@ export default async function getHandler(req, res) {
           })
         } else {
           product.quantity = quantity
-          await cart.save()
         }
+        await cart.save()
       }
     })
 
