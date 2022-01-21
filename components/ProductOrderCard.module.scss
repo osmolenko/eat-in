@@ -7,16 +7,13 @@
   display: grid;
   grid-template-areas: "name price" "price-per-day counter";
   gap: 10px;
-  margin: 0 20px;
 
   &__name {
     grid-area: name;
-    justify-self: start;
   }
 
   &__perday {
     grid-area: price-per-day;
-    justify-self: start;
     color: $light-gray;
   }
 
