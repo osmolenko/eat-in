@@ -13,11 +13,9 @@ const validationSchema = yup.object({
 })
 
 const Register = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(validationSchema) })
+  const { register, handleSubmit } = useForm({
+    resolver: yupResolver(validationSchema),
+  })
   const onSubmit = (data) => console.log(data)
 
   return (
