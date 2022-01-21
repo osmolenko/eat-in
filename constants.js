@@ -5,6 +5,8 @@ import Time from './icons/for/Time'
 import Straight from './icons/for/Straight'
 import Loss from './icons/for/Loss'
 
+export const PROJECT_NAME = 'eat-in'
+
 export const paymentMethods = [
   { name: 'Приватбанк', id: 'privat' },
   { name: 'Duino-coin', id: 'duco' },

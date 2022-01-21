@@ -6,6 +6,8 @@ import { useSession } from 'next-auth/react'
 import Loader from '../../components/basic/Loader'
 import useSWR from 'swr'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
+import { PROJECT_NAME } from '../../constants'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
@@ -30,21 +32,27 @@ const Profile = () => {
   if (status === 'loading' || !data || error) return <Loader />
 
   return (
-    <AppContainer>
-      <section className={styles.container}>
-        <h2 className={styles.container__heading}>Приветствуем,</h2>
-        <h2 className={styles.container__name}>
-          {session.user.name.split(' ')[0]}!
-        </h2>
+    <>
+      <Head>
+        <title>Профиль — {PROJECT_NAME}</title>
+      </Head>
 
-        <h3 className={styles.container__ordersheading}>Ваши заказы</h3>
-        {data ? (
-          data.map((order) => <OrderCard key={order.pid} order={order} />)
-        ) : (
-          <h2>Заказов пока нету =(</h2>
-        )}
-      </section>
-    </AppContainer>
+      <AppContainer>
+        <section className={styles.container}>
+          <h2 className={styles.container__heading}>Приветствуем,</h2>
+          <h2 className={styles.container__name}>
+            {session.user.name.split(' ')[0]}!
+          </h2>
+
+          <h3 className={styles.container__ordersheading}>Ваши заказы</h3>
+          {data ? (
+            data.map((order) => <OrderCard key={order.pid} order={order} />)
+          ) : (
+            <h2>Заказов пока нету =(</h2>
+          )}
+        </section>
+      </AppContainer>
+    </>
   )
 }
 

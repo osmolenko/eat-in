@@ -9,9 +9,10 @@ import ProductOrderCard from '../../components/ProductOrderCard'
 import { useForm } from 'react-hook-form'
 import TextInput from '../../components/basic/TextInput'
 import SelectInput from '../../components/basic/SelectInput'
-import { paymentMethods, timeIntervals } from '../../constants'
+import { paymentMethods, PROJECT_NAME, timeIntervals } from '../../constants'
 import Checkbox from '../../components/basic/Checkbox'
 import Button from '../../components/basic/Button'
+import Head from 'next/head'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
@@ -80,72 +81,78 @@ const New = () => {
   }
 
   return (
-    <AppContainer>
-      <section className={styles.container}>
-        <h2>Оформление заказа</h2>
-        <ul>
-          {data.products.map((product) => (
-            <ProductOrderCard key={product._id} product={product} />
-          ))}
-        </ul>
-        <hr />
-        <h2>Ваши данные</h2>
-        <form
-          className={styles.container__form}
-          onSubmit={handleSubmit(submit)}
-        >
-          <TextInput
-            type="tel"
-            name="phone"
-            labelText="Номер телефона"
-            {...register('phone')}
-            required={true}
-          />
-          <TextInput
-            type="text"
-            name="city"
-            labelText="Город"
-            {...register('city')}
-            required={true}
-          />
-          <TextInput
-            type="text"
-            name="address"
-            labelText="Адрес"
-            {...register('address')}
-            required={true}
-          />
-          <TextInput
-            type="text"
-            name="apt"
-            labelText="Квартира"
-            {...register('apt')}
-            required={true}
-          />
+    <>
+      <Head>
+        <title>Новый заказ — {PROJECT_NAME}</title>
+      </Head>
 
-          <SelectInput
-            type="text"
-            name="payment"
-            labelText="Оплата"
-            {...register(`payment`)}
-            required={true}
-            options={paymentMethods}
-          />
-          <SelectInput
-            type="text"
-            name="time"
-            labelText="Время получения"
-            {...register(`time`)}
-            required={true}
-            options={timeIntervals}
-          />
-          <Checkbox label="Приготовлю сам" {...register(`selfMade`)} />
-          <Button variant="primary" type="submit">
-            Оформить заказ ( {summary}₴ )
-          </Button>
-        </form>
-      </section>
-    </AppContainer>
+      <AppContainer>
+        <section className={styles.container}>
+          <h2>Оформление заказа</h2>
+          <ul>
+            {data.products.map((product) => (
+              <ProductOrderCard key={product._id} product={product} />
+            ))}
+          </ul>
+          <hr />
+          <h2>Ваши данные</h2>
+          <form
+            className={styles.container__form}
+            onSubmit={handleSubmit(submit)}
+          >
+            <TextInput
+              type="tel"
+              name="phone"
+              labelText="Номер телефона"
+              {...register('phone')}
+              required={true}
+            />
+            <TextInput
+              type="text"
+              name="city"
+              labelText="Город"
+              {...register('city')}
+              required={true}
+            />
+            <TextInput
+              type="text"
+              name="address"
+              labelText="Адрес"
+              {...register('address')}
+              required={true}
+            />
+            <TextInput
+              type="text"
+              name="apt"
+              labelText="Квартира"
+              {...register('apt')}
+              required={true}
+            />
+
+            <SelectInput
+              type="text"
+              name="payment"
+              labelText="Оплата"
+              {...register(`payment`)}
+              required={true}
+              options={paymentMethods}
+            />
+            <SelectInput
+              type="text"
+              name="time"
+              labelText="Время получения"
+              {...register(`time`)}
+              required={true}
+              options={timeIntervals}
+            />
+            <Checkbox label="Приготовлю сам" {...register(`selfMade`)} />
+            <Button variant="primary" type="submit">
+              Оформить заказ ( {summary}₴ )
+            </Button>
+          </form>
+        </section>
+      </AppContainer>
+    </>
   )
 }
 

@@ -6,6 +6,8 @@ import ProductOrderCard from '../components/ProductOrderCard'
 import Button from '../components/basic/Button'
 import AppContainer from '../containers/AppContainer'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
+import { PROJECT_NAME } from '../constants'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
@@ -47,30 +49,36 @@ const CartNoSsr = () => {
   }
 
   return (
-    <AppContainer>
-      <section className={styles.container}>
-        <h2>Корзина</h2>
+    <>
+      <Head>
+        <title>Корзина — {PROJECT_NAME}</title>
+      </Head>
 
-        <ul className={styles.container__products}>
-          {data.products.map((product) => (
-            <ProductOrderCard
-              key={product._id}
-              variant="input"
-              product={product}
-              onChange={(event) => handleChange(event, product.product.pid)}
-            />
-          ))}
-        </ul>
+      <AppContainer>
+        <section className={styles.container}>
+          <h2>Корзина</h2>
 
-        <Button
-          type="submit"
-          variant="primary"
-          onClick={() => router.push('/order/new')}
-        >
-          Заказать ( {summary}₴ )
-        </Button>
-      </section>
-    </AppContainer>
+          <ul className={styles.container__products}>
+            {data.products.map((product) => (
+              <ProductOrderCard
+                key={product._id}
+                variant="input"
+                product={product}
+                onChange={(event) => handleChange(event, product.product.pid)}
+              />
+            ))}
+          </ul>
+
+          <Button
+            type="submit"
+            variant="primary"
+            onClick={() => router.push('/order/new')}
+          >
+            Заказать ( {summary}₴ )
+          </Button>
+        </section>
+      </AppContainer>
+    </>
   )
 }
 

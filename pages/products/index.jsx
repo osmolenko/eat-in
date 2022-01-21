@@ -4,20 +4,28 @@ import ProductCard from '../../components/ProductCard'
 import AppContainer from '../../containers/AppContainer'
 import mongoose from 'mongoose'
 import Product from '../../entities/Product'
+import Head from 'next/head'
+import { PROJECT_NAME } from '../../constants'
 
 const Index = (props) => {
   const products = JSON.parse(props.products)
   return (
-    <AppContainer>
-      <section className={styles.container}>
-        <h1>Новинки</h1>
-        {products
-          ? products.map((product) => (
-              <ProductCard key={product.pid} product={product} />
-            ))
-          : 'Пока продуктов нету =('}
-      </section>
-    </AppContainer>
+    <>
+      <Head>
+        <title>Наши наборы — {PROJECT_NAME}</title>
+      </Head>
+
+      <AppContainer>
+        <section className={styles.container}>
+          <h1>Наши наборы</h1>
+          {products
+            ? products.map((product) => (
+                <ProductCard key={product.pid} product={product} />
+              ))
+            : 'Пока продуктов нету =('}
+        </section>
+      </AppContainer>
+    </>
   )
 }
 
