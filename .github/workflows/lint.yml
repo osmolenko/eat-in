@@ -1,0 +1,25 @@
+name: lint
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkoutv2
+      - uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install
+      - uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: lint:js
+      - uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: lint:css
+      - uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: build
