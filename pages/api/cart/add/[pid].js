@@ -12,9 +12,15 @@ export default async function getHandler(req, res) {
     const data = await Cart.findByPid(cartPid)
     const { _id } = await Product.findByPid(productPid)
 
+    const isExist = data.products.find(
+      (product) => product.product.toString() === _id.toString()
+    )
+
     if (!data) {
       await Cart.create({ pid: cartPid, products: [{ product: _id }] })
-    } else {
+    }
+
+    if (!isExist) {
       data.products.push({ product: _id })
       await data.save()
     }
