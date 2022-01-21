@@ -3,23 +3,19 @@ name: lint
 on:
   push:
     branches:
-      - '**'
+      - master
 
 jobs:
   lint:
-    name: lint
+    name: es and style lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkoutv2
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: install
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: lint:js
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: lint:css
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: build
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        run: yarn
+
+      - name: Stylelint
+        run: yarn lint:css
+
+      - name: ESlint
+        run: yarn lint:js
