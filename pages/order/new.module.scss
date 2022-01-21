@@ -1,0 +1,26 @@
+@import "styles/mixins";
+
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 20px;
+  max-width: 410px;
+  margin: 20px auto;
+
+  ul {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+  }
+
+  h2 {
+    @include heading-h2;
+  }
+
+  &__form {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+    align-items: center;
+  }
+}
